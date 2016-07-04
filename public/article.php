@@ -16,6 +16,7 @@ $results = db_select($con, $query, array(
 ));
 
 if(!isset($results[0])){
+    header('HTTP/1.1 404 Not found');
     echo "Articolul nu a fost gasit";
     die;
 }
