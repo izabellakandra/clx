@@ -1,5 +1,10 @@
 <?php
-include '../inc/db.php';
+include '../../inc/db.php';
+include '../../inc/functii.php';
+
+if(!isset($_GET['id'])){
+    page_not_found();
+}
 
 $con = db_connect(array(
     'host' => '127.0.0.1',
@@ -16,9 +21,7 @@ $results = db_select($con, $query, array(
 ));
 
 if(!isset($results[0])){
-    header('HTTP/1.1 404 Not found');
-    echo "Articolul nu a fost gasit";
-    die;
+    page_not_found();
 }
 
 $article = $results[0];

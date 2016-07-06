@@ -4,7 +4,7 @@ function template($file, $args)
 {
     ob_start();
     extract($args);
-    include '../templates/' . $file . '.php';
+    include __DIR__ . '/../templates/' . $file . '.php';
     return ob_get_clean();
 }
 
@@ -22,5 +22,15 @@ function html_a($text, $href = '#')
         'content' => $text,
         'href' => $href,
     ));
+}
+
+function page_not_found($text = null)
+{
+    header('HTTP/1.1 404 Not found');
+    if($text === null){
+        $text = template('error404');
+    }
+    echo $text;
+    exit;
 }
 

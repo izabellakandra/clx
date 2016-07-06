@@ -6,6 +6,6 @@
         <textarea name="content"><?php echo $content;?></textarea>
     </div>
     <button type="submit">
-        Create
+        Save
     </button>
 </form>

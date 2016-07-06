@@ -14,7 +14,7 @@ $con = db_connect(array(
 $query = "SELECT * FROM articles";
 $results = db_select($con, $query);
 
-echo template('articles', array(
+echo template('article/list', array(
     'articles' => $results,
 ));
 

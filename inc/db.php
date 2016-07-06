@@ -115,5 +115,17 @@ function db_delete(PDO $connection, $statement, array $params = array())
     return $result;
 }
 
+/**
+ * Returneaza ultimul ID inserat
+ * 
+ * @param PDO $connection
+ * @param string|null $name (optional)
+ * @return mixed
+ */
+function db_last_insert_id(PDO $connection, $name= null)
+{
+    return $connection->lastInsertId($name);
+}
+
 
 
