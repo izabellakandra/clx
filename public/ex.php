@@ -1,17 +1,10 @@
 <?php
-include '../inc/functii.php';
-include '../inc/db.php';
+include '../inc/session.php';
 
-$con = db_connect(array(
-    'host' => '127.0.0.1',
-    'port' => 3306,
-    'database' => 'curs',
-    'user' => 'root',
-    'pass' => 'x',
-));
+start_session();
 
-$command = 'DELETE FROM articles WHERE id = :id';
+destroy_session();
+echo read_session('cylex');
 
-db_delete($con, $command, array(
-    ':id' => 5,
-));
+session_destroy();
+setcookie(session_name(), "", 1);
